@@ -1,6 +1,6 @@
 # CSCI6234-Final-Project
 
-In this project we design, implement 
+In this project we design and implement a website
 
 ## Table of Contents
 
@@ -28,3 +28,4 @@ In this project we design, implement
 
 [@ya-gao](https://github.com/ya-gao)
 
+[@zhwminggu](https://github.com/zheminggu)

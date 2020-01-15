@@ -28,4 +28,4 @@ In this project we design and implement a website
 
 [@ya-gao](https://github.com/ya-gao)
 
-[@zhwminggu](https://github.com/zheminggu)
+[@zheminggu](https://github.com/zheminggu)

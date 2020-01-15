@@ -17,11 +17,10 @@ version: Java SE Development Kit 13.0.2
 <strong>after install JDK:</strong> according to [this website](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) open environment window
 new system variables names <strong>JAVA_HOME</strong>, path is the path of jdk, for instance C:\Program Files\Java\jdk-13.0.2
 
-install this projectand use intelliJ to open the project. Let maven install required packages.
+install this project and use intelliJ to open the project. Let maven install required packages.
 
-after open the project 
 
-<strong> Check in intelliJ !!!</strong> 
+After open the project <strong> Check in intelliJ !!!</strong> 
 
 1. File-> Settings-> Java Compiler -> Project bytecode version == 13 
 
@@ -32,3 +31,8 @@ after open the project
 4. File-> Project Structure -> Project -> Project Language Level == 13 - new language features
 
 5. Edit configurations -> Spring Boot WatchAMovieTogetherApplication(1) -> Environment -> Jre == path of your JDK
+
+## Run app
+hit run button (green triangle) on the top left, to check if the project can run
+
+open browser type  localhost:8080/greeting?name=Your_Name  to test if the web run correctly 

@@ -36,3 +36,6 @@ After open the project <strong> Check in intelliJ !!!</strong>
 hit run button (green triangle) on the top left, to check if the project can run
 
 open browser type  localhost:8080/greeting?name=Your_Name  to test if the web run correctly 
+
+# Project Structure
+(Please See)[Document/Project Structure.md]

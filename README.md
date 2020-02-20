@@ -1,6 +1,7 @@
 # CSCI6234-Final-Project
 
 In this project we design and implement a website called XXX. Requirements Model, Analysis Model, Design Model, User Interface Design (Mock-up Prototype) and	Operational Prototype models are developed using an object-oriented technique UML.
+[Link to Google Drive containing Use Cases and other diagrams](https://drive.google.com/drive/folders/1Ni1juKaKFiFebxwaioT_gW00UZ_NRP8L?usp=sharing)
 
 ## Table of Contents
 

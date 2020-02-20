@@ -13,6 +13,9 @@ class Event(models.Model):
     event_end_vote_time = models.DateTimeField("end vote time", default=datetime.now)
     event_time = models.DateTimeField("event time", default=datetime.now)
 
+    def __str__(self):
+        return self.event_name
+
 
 class GroupEventManager(models.Model):
     group = models.OneToOneField(Group, on_delete=models.CASCADE)

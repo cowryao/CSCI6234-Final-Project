@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://zheminggu.com/blog_assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://zheminggu.com/blog_assets/css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/971749d42b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    this is the index page
+    <div>this is the index page</div>
+    <br>
+
+    <form th:action="@{/}">
+        <input type="text" th:name="participant"/>
+        <select th:name="country">
+            <option value="de">Germany</option>
+            <option value="nl">Netherlands</option>
+            <option value="pl">Poland</option>
+            <option value="lv">Latvia</option>
+        </select>
+        <input type="submit"/>
+    </form>
+
+<!--    <button type="button" class="btn btn-primary" name="SignIn">SignIn</button>-->
+<!--    <button type="button" class="btn btn-secondary" name="SignOut">SignOut</button>-->
+<!--    <button type="button" class="btn btn-success" name="SignUp">SignUp</button>-->
+
+<!--    <button type="button" class="btn btn-danger">Danger</button>-->
+<!--    <button type="button" class="btn btn-warning">Warning</button>-->
+<!--    <button type="button" class="btn btn-info">Info</button>-->
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://zheminggu.com/blog_assets/js/jquert-3.4.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://zheminggu.com/blog_assets/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://zheminggu.com/blog_assets/js/main.js"></script>
+    <script src="https://zheminggu.com/blog_assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

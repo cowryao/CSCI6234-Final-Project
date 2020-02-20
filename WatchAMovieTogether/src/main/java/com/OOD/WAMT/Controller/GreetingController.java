@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/greeting")
 public class GreetingController {
     @RequestMapping( method = RequestMethod.GET)
-    public String greeting(ModelMap model) {
+    public void greeting(ModelMap model) {
         String name = "Kathy Nguyen";
         model.addAttribute("name", name);
-        return "greeting";
+        System.out.println("Hello");
     }
 
 }

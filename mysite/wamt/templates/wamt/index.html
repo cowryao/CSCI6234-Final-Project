@@ -1,0 +1,22 @@
+{% extends "wamt/header.html" %}
+{% block content%}      
+    <div class="container">
+        <br><br><h1>hello there</h1><br><br>
+        
+        <div class="row">
+            {% for movie in movies %}
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="card-title">{{movie.movie_title}}</h5>
+                    <p class="card-text">show time {{movie.movie_published}}.</p>
+                    <a href="#" class="btn btn-primary">Go See the movie</a>
+                    </div>
+                </div>
+            </div>
+            
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

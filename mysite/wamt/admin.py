@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Movie, Event, GroupEventManager
+from django.contrib.auth.admin import UserAdmin,GroupAdmin
+from django.contrib.auth.models import User,Group
+from .models import Movie, Event, NewUserManager, NewGroupManager, MMTest
 
 # Register your models here.
 admin.site.register(Movie)
@@ -14,4 +16,36 @@ class EventAdmin(admin.ModelAdmin):
 
 admin.site.register(Event, EventAdmin)
 
-admin.site.register(GroupEventManager)
+
+class NewGroupManagerInline(admin.StackedInline):
+    model = NewGroupManager
+    filter_horizontal = ('group_events','group_user')
+
+
+class CustomGroupAdmin(GroupAdmin):
+    #filter_horizontal = ('user_permissions', 'groups', 'ope')
+    save_on_top = True
+    list_display = ['name', 'pk']
+    inlines = [NewGroupManagerInline]
+
+
+admin.site.unregister(Group)
+admin.site.register(Group, CustomGroupAdmin)
+
+
+class NewUserManagerInline(admin.StackedInline):
+    model = NewUserManager
+    filter_horizontal = ('group_owned',)
+
+
+class CustomUserAdmin(UserAdmin):
+    #filter_horizontal = ('user_permissions', 'groups', 'ope')
+    save_on_top = True
+    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'last_login')
+    inlines = [NewUserManagerInline]
+
+
+admin.site.unregister(User)
+admin.site.register(User, CustomUserAdmin)
+
+admin.site.register(MMTest)

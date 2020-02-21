@@ -1,9 +1,27 @@
 from django.db import models
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from datetime import datetime
 # Create your models here.
+
+class MMTest(models.Model):
+    users= models.ManyToManyField(User)
+
+class NewUserManager(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    group_owned = models.ManyToManyField(Group, verbose_name='group_owned', blank=True)
+    @receiver(post_save, sender=User)
+    def create_user_manager(sender, instance, created, **kwargs):
+        if created:
+            NewUserManager.objects.create(user=instance)
+            
+    @receiver(post_save, sender=User)
+    def save_user_manager(sender, instance, **kwargs):
+        instance.newusermanager.save()
+
+    def __str__(self):
+        return self.user.username
 
 
 class Event(models.Model):
@@ -17,17 +35,21 @@ class Event(models.Model):
         return self.event_name
 
 
-class GroupEventManager(models.Model):
+class NewGroupManager(models.Model):
     group = models.OneToOneField(Group, on_delete=models.CASCADE)
     group_events = models.ManyToManyField(Event)
+    group_user = models.ManyToManyField(User)
     @receiver(post_save, sender=Group)
-    def create_group_event(sender, instance, created, **kwargs):
+    def create_group_manager(sender, instance, created, **kwargs):
         if created:
-            GroupEvent.objects.create(group=instance)
+            NewGroupManager.objects.create(group=instance)
 
     @receiver(post_save, sender=Group)
-    def save_group_event(sender, instance, **kwargs):
-        instance.GroupEvent.save()
+    def save_group_manager(sender, instance, **kwargs):
+        instance.newgroupmanager.save()
+
+    def __str__(self):
+        return self.group.name
 
 
 class Movie(models.Model):

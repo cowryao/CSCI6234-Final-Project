@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Movie
+from .models import Movie, NewUserManager, NewGroupManager
 from .forms import NewUserCreationForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.models import User, Group
 from django.contrib import messages
 # Create your views here.
 
 
-def homepage(request):
+def homepage(request): 
     return render(request=request,
                   template_name="wamt/index.html",
                   context={"movies": Movie.objects.all})

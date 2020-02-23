@@ -5,8 +5,10 @@ from django.dispatch import receiver
 from datetime import datetime
 # Create your models here.
 
+
 class MMTest(models.Model):
-    users= models.ManyToManyField(User)
+    users = models.ManyToManyField(User)
+
 
 class NewUserManager(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -15,7 +17,7 @@ class NewUserManager(models.Model):
     def create_user_manager(sender, instance, created, **kwargs):
         if created:
             NewUserManager.objects.create(user=instance)
-            
+
     @receiver(post_save, sender=User)
     def save_user_manager(sender, instance, **kwargs):
         instance.newusermanager.save()

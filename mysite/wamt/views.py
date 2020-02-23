@@ -28,7 +28,7 @@ def add_new_group(request):
             u.save()
             print(u.group_owned.all())
         # print(dir(user))
-    except:
+    except Exception as e:
         print("meet error")
 
 
@@ -40,7 +40,7 @@ def homepage(request):
 
 def register(request):
     # print("I do register")
-    if request.method == "POST":       
+    if request.method == "POST":
         form = NewUserCreationForm(request.POST)
         # print(form.is_valid())
         if form.is_valid():
@@ -77,7 +77,7 @@ def login_request(request):
                 login(request, user)
                 messages.info(request, f"you are now loggin as {username}")
                 return redirect("/")
-            else: 
+            else:
                 messages.error(request, f"Invalid username or password")
         else:
             messages.error(request, f"Invalid input username or password")

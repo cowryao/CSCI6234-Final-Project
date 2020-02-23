@@ -9,7 +9,30 @@ from django.contrib import messages
 # Create your views here.
 
 
-def homepage(request): 
+def add_new_group(request):
+    try:
+        # filter is getting all the objects, however the result are querysets
+        # get is getting a instance of class, however it will raise error when the instance cannot be found
+        # the parameter in filter and get is object and its parameters such as NewUserManager->NewUserManager:user->User:username
+        usermanager = NewUserManager.objects.filter(user__username="zheming3")
+        group = Group.objects.get(name="group2")
+        print(vars(usermanager))
+        for u in usermanager.all():
+            # print(vars(u))
+            print(u.group_owned.all())
+            # u.group_owned.add(* group)  //if group is a query set
+            u.group_owned.add(group)
+            u.save()
+            print(u.group_owned.all())
+            u.group_owned.remove(group)
+            u.save()
+            print(u.group_owned.all())
+        # print(dir(user))
+    except:
+        print("meet error")
+
+
+def homepage(request):
     return render(request=request,
                   template_name="wamt/index.html",
                   context={"movies": Movie.objects.all})
